@@ -34,12 +34,17 @@ namespace ConsultaFIPE
         /// <param name="e"></param>
         private void frmMain_Load(object sender, EventArgs e)
         {
+            //carrega o combobox com os tipos disponivies para consulta
             PreencherComboBoxTipo();
+            //desabilita demais combobox, pois não possuem dados, o carregamento se dá em cascata conforme vai sendo selecionado os dados
             cmbFabricante.Enabled = false;
             cmbModelo.Enabled = false;
             cmbAnoModelo.Enabled = false;
         }
 
+        /// <summary>
+        /// método que preenche os dados no combobox tipo
+        /// </summary>
         private void PreencherComboBoxTipo()
         {
             try
@@ -167,7 +172,6 @@ namespace ConsultaFIPE
             {
                 MessageBox.Show($"Problemas ao consultar dados no servidor da FIPE: {ex.Message}", "Falha de conexão", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-               
+        }               
     }
 }
